@@ -1,6 +1,76 @@
+$lightBlue: #b5cfe7;
+
 .app {
+    display: flex;
+    justify-content: center;
 
     .container {
-        
+        width: 1024px;
+        //LOGIN & REGISTER
+
+        .auth {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: $lightBlue;
+
+            h1{
+                font-size: 30px;
+                color: rgb(37, 70, 150);
+                margin-bottom: 20px;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                padding: 50px;
+                background-color: white;
+                width: 200px;
+                gap: 25px;
+
+                input {
+                    padding: 10px;
+                    border: none;
+                    border-bottom: 1px solid gray;
+                }
+
+                button {
+                    padding: 10px;
+                    border: none;
+                    background-color: rgb(37, 70, 150);
+                    cursor: pointer;
+                    color: antiquewhite;
+                }
+
+                span {
+                    font-size: 12px;
+                    text-align: center;
+                }
+
+                p {
+                    font-size: 12px;
+                    color: red;
+                    text-align: center;
+                }
+            }
+        }
+
+        //NAVBAR
+
+        .navbar {
+            .container {
+                padding: 10px 0;
+                display: flex;
+                justify-content: space-between;
+                .logo{
+
+                }
+                .links{
+
+                }
+            }
+        }
     }
 }
