@@ -2,23 +2,25 @@ import {
   createBrowserRouter,
   RouterProvider,
   Route,
+  Outlet,
 } from "react-router-dom";
-import Register from "./pages/Register"
-import Login from "./pages/Login"
-import Write from "./pages/Write"
-import Home from "./pages/Home"
-import Single from "./pages/Single"
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Write from "./pages/Write";
+import Home from "./pages/Home";
+import Single from "./pages/Single";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import "./style.scss"
 
-const Layout = ()=>{
+const Layout = () => {
   return (
     <>
       <Navbar/>
-      <Ouylet/>
+      <Outlet/>
       <Footer/>
     </>
-  )
+  );
 }
 
 const router = createBrowserRouter([
@@ -31,7 +33,7 @@ const router = createBrowserRouter([
         element:<Home/>
       },
       {
-        path:"/single",
+        path:"/post/:id",
         element:<Single/>
       },
       {
@@ -52,8 +54,10 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div>
+    <div className="app">
+      <div className="container">
       <RouterProvider router={router}/>
+      </div>
     </div>
   );
 }
