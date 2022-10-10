@@ -71,7 +71,7 @@ $lightBlue: #b5cfe7;
                 justify-content: space-between;
                 .logo{
                     img {
-                        width: 200px;
+                        width: 130px;
                     }
                     
                 }
@@ -276,6 +276,71 @@ $lightBlue: #b5cfe7;
                         height: 200px;
                         object-fit: cover;
                     }
+
+                    button{
+                        width: max-content;
+                        padding: 7.5px 15px;
+                        border: none;
+                        cursor: pointer;
+                        background-color: #fff;
+                        border: 1px solid rgb(37, 70, 150);
+                        color: rgb(37, 70, 150);
+
+                        &:hover{
+                            border: 1px solid white;
+                            background-color: $lightBlue;
+                            color: black;
+                        }
+                    }
+                }
+            }
+        }
+
+        //write
+
+        .add{
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+
+            .content {
+                flex: 5;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                input{
+                    padding: 10px;
+                    border: 1px solid lightgray;
+                }
+
+                .editorContainer{
+                    height: 300px;
+                    overflow: scroll;
+                    border: 1px solid lightgray;
+
+                    .editor{
+                        height: 100%;
+                        border: none;
+                    }
+                }
+            }
+
+            .menu{
+                flex: 2;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .item {
+                    border: 1px solid lightgray;
+                    padding: 10px;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    font-size: 12px;
+                    color:  #555;
                 }
             }
         }
