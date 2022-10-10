@@ -49,9 +49,9 @@ export const login = async (req, res, next) => {
             return res.status(400).json('Wrong username or password!');
         }
 
-        const token = jwt.sign({ id: rows[0].id }, 'jtwsecret');
+        const token = jwt.sign({ id: rows[0].id }, 'jwtsecret');
 
-        res.cookie("access_token", token, {
+        res.cookie('access_token', token, {
             httpOnly: true
         }).status(200).json(userInfo);
 
@@ -61,8 +61,8 @@ export const login = async (req, res, next) => {
 }
 
 export const logout = (req, res) => {
-    res.clearCookie("access_token", {
-        sameSite: "none",
+    res.clearCookie('access_token', {
+        sameSite: 'none',
         secure: true
     }).status(200).json('User has been logged out.')
 }
