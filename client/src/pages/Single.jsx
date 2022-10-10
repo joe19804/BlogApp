@@ -4,6 +4,7 @@ import User from '../img/user.jpg'
 import Edit from '../img/edit.png'
 import Delete from '../img/delete.png'
 import {Link} from "react-router-dom";
+import Menu from "../components/Menu";
 
 const Single = () => {
   return (
@@ -34,7 +35,9 @@ There are also various reasons why people create fake news. Some have political 
 
 So, what can we do to stop fake news spreading? First, make sure that the websites you read are legitimate, for example by looking carefully at the domain name and the About Us section. Check the sources of any quotes or figures given in the story. Remember that amazing stories about famous people will be covered by the mainstream media if they are true. Only share stories you know are true and let your friends know, tactfully, when they unknowingly share fake news. Together we can turn around the post-truth world! </p>
       </div>
-      <div className="menu">m</div>
+      <div className="menu">
+        <Menu/>
+      </div>
     </div>
   )
 }
