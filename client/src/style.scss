@@ -341,6 +341,14 @@ $lightBlue: #b5cfe7;
                     justify-content: space-between;
                     font-size: 12px;
                     color:  #555;
+
+                    h1{
+                        font-size: 20px;
+                    }
+
+                    label {
+                        text-decoration: underline;
+                    }
                 }
             }
         }
