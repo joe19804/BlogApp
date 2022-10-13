@@ -346,8 +346,38 @@ $lightBlue: #b5cfe7;
                         font-size: 20px;
                     }
 
-                    label {
+                    .file {
                         text-decoration: underline;
+                        cursor: pointer;
+                        font-size: 14px;
+                    }
+
+                    .buttons {
+                        display: flex;
+                        justify-content: space-between;
+
+                        :first-child{
+                            cursor: pointer;
+                            color:rgb(37, 70, 150);
+                            background-color: #fff;
+                            border: 1px solid rgb(37, 70, 150);
+                            padding: 3px 5px;
+                        }
+                        :last-child{
+                            cursor: pointer;
+                            color: #fff;
+                            background-color: rgb(37, 70, 150);
+                            border: 1px solid rgb(37, 70, 150);
+                            padding: 3px 5px;
+                        }
+
+                    }
+
+                    .cat {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        color: rgb(37, 70, 150);
                     }
                 }
             }
