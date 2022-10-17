@@ -5,7 +5,6 @@ import cookieParser from 'cookie-parser';
 import multer from 'multer';
 
 const app = express();
-const port = 5000;
 
 const errorResponder = (err, req, res, next) => {
     res.header('Content-Type', 'application/json')
@@ -40,8 +39,4 @@ app.use('/api/auth', authRouter);
 app.use(errorResponder);
 app.use(invalidPathHandler);
 
-
-
-app.listen(port, () => {
-    console.log(`server is running on http://localhost:${port}`)
-});
+export default app;
