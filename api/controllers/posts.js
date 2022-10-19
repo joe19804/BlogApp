@@ -60,7 +60,7 @@ export const deletePost = async (req, res,) => {
         try {
             const query = 'DELETE FROM posts WHERE id = ? and uid = ?'
 
-            let result = await db.promise().query(query, [req.params.id, userInfo.id]);
+            let [result] = await db.promise().query(query, [req.params.id, userInfo.id]);
 
             if (!result.affectedRows) {
                 return res.status(403).json('You can delete only your post!');
@@ -89,7 +89,7 @@ export const updatePost = (req, res) => {
                 req.body.img,
                 req.body.cat,
             ]
-            let result = await db.promise().query(query, [...value, req.params.id, userInfo.id]);
+            let [result] = await db.promise().query(query, [...value, req.params.id, userInfo.id]);
 
             if (!result.affectedRows) {
                 return res.status(403).json('You can update only your post!');
