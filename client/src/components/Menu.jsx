@@ -7,7 +7,7 @@ export const Menu = ({cat}) => {
   useEffect(()=>{
     const fetchData = async () =>{
       try{
-        const res = await axios.get(`/posts/?cat=${cat}`);
+        const res = await axios.get(`/api/posts/?cat=${cat}`);
         setPosts(res.data);
       }catch(err){
         console.log(err);
@@ -47,6 +47,7 @@ export const Menu = ({cat}) => {
         {posts.map((post) => (
         <div className='post' key={post.id}>
             <img src={`../upload/${post?.img}`} alt="" />
+            {/* 需要增加img上傳的資料庫儲存照片的功能 */}
             <h2>{post.title}</h2>
             <button>Read More</button>
         </div>

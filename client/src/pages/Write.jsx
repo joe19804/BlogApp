@@ -20,7 +20,7 @@ const Write = () => {
       try{
         const formData = new FormData();
         formData.append("file", file)
-        const res = await axios.post("/upload", formData)
+        const res = await axios.post("/api/upload", formData)
         return res.data
       }catch(err){
         console.log(err)
@@ -31,12 +31,12 @@ const Write = () => {
     const imgUrl = await upload()
 
     try{
-      state ? await axios.put(`/posts/${state.id}`, {
+      state ? await axios.put(`/api/posts/${state.id}`, {
         title,
         desc:value,
         cat,
         img:file ? imgUrl : ""
-      }) : await axios.post(`/posts/`, {
+      }) : await axios.post(`/api/posts/`, {
         title,
         desc:value,
         cat,
