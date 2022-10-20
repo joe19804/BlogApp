@@ -1,9 +1,7 @@
 import React from 'react'
-import User from '../img/user.jpg'
-// import {EditOutlinedIcon} from '@mui/icons/DeleteOutlined';
 import Edit from '../img/edit.png'
 import Delete from '../img/delete.png'
-import {Link, Navigate, useLocation, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import Menu from "../components/Menu";
 import moment from "moment"
 
