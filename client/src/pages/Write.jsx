@@ -1,10 +1,9 @@
-import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import axios from "axios"
-import { useNavigate, useLocation } from 'react-router-dom';
 import moment from 'moment';
+import axios from 'axios';
 
 
 const Write = () => {
@@ -19,7 +18,7 @@ const Write = () => {
 
     const upload = async ()=>{
       try{
-        const forData = new FormData();
+        const formData = new FormData();
         formData.append("file", file)
         const res = await axios.post("/upload", formData)
         return res.data

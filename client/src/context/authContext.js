@@ -1,4 +1,5 @@
-import { createContext } from "react";
+import { createContext, useState, useEffect} from "react";
+import axios from 'axios';
 
 export const AuthContext = createContext()
 
@@ -16,7 +17,7 @@ export const AuthContextProvider = ({children}) =>{
     }
 
     useEffect(()=>{
-        loacalStorage.setItem("user",JSON.stringify(currentUser));
+        localStorage.setItem("user",JSON.stringify(currentUser));
     },[currentUser])
 
     return (

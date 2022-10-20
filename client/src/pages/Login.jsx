@@ -1,5 +1,6 @@
-import React, { useContext } from 'react'
-import {Link} from 'react-router-dom'
+import React, { useState, useContext} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
+import {AuthContext} from "../context/authContext";
 
 const Login = () => {
   const [inputs, setInputs] = useState ({
@@ -13,10 +14,8 @@ const Login = () => {
 
   const {login} = useContext(AuthContext);
 
-  console.log(currentUser)
-
-  const handleChange = e => {
-    setInputs(prev=>({...prev, [e.target.name]: e.target.value}))
+  const handleChange = (e) => {
+    setInputs((prev)=>({...prev, [e.target.name]: e.target.value}))
   }
 
   const handleSubmit = async e =>{
@@ -25,7 +24,7 @@ const Login = () => {
       await login(inputs)
       navigate("/");
     }catch(err){
-    setError(err.response.data);
+      setError(err.response.data);
     }
   }
 
@@ -37,7 +36,7 @@ const Login = () => {
           <input required type="password" placeholder='password' name="password" onChange={handleChange}/>
           <button onClick={handleSubmit} >Login</button>
           {err && <p>{err}</p> }
-          <span>尚未有帳號?<Link to="/register">註冊</Link></span>
+          <span>Don't you have an account?<Link to="/register">註冊</Link></span>
           
         </form>
     </div>

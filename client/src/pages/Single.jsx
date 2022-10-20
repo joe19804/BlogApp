@@ -1,9 +1,13 @@
-import React from 'react'
-import Edit from '../img/edit.png'
-import Delete from '../img/delete.png'
+import React,{useState, useContext} from 'react';
 import {Link, useLocation, useNavigate} from "react-router-dom";
+import {AuthContext} from "../context/authContext";
+import Edit from '../img/edit.png';
+import Delete from '../img/delete.png';
 import Menu from "../components/Menu";
-import moment from "moment"
+import moment from "moment";
+import axios from "axios"
+
+
 
 const Single = () => {
   const [post,setPost] = useState([]);
