@@ -1,23 +1,23 @@
 import axios from 'axios';
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from "react-router-dom";
 
 const Home = () => {
 
-  const [posts,setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
   const cat = useLocation().search
 
-  useEffect(()=>{
-    const fetchData = async () =>{
-      try{
-        const res = await axios.get(`/posts${cat}`);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`/api/posts`);
         setPosts(res.data);
-      }catch(err){
+      } catch (err) {
         console.log(err);
       }
     };
     fetchData();
-  },[cat]);
+  }, [cat]);
   // const posts = [
   //   {
   //     id: 1,
@@ -50,7 +50,7 @@ const Home = () => {
     return doc.body.textContent
   }
 
- 
+
   return (
     <div className="home">
       <div className="posts">
@@ -60,7 +60,7 @@ const Home = () => {
               <img src={`./upload/{post.img}`} alt="" />
             </div>
             <div className="content">
-              <Link className="link" to={`/post/${post.id}`}>
+              <Link className="link" to={`/posts/${post.id}`}>
                 <h1>{post.title}</h1>
               </Link>
               <p>{getText(post.desc)}</p>

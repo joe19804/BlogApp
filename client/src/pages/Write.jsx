@@ -16,45 +16,45 @@ const Write = () => {
 
   const navigate = useNavigate()
 
-    const upload = async ()=>{
-      try{
-        const formData = new FormData();
-        formData.append("file", file)
-        const res = await axios.post("/api/upload", formData)
-        return res.data
-      }catch(err){
-        console.log(err)
-      }
+  const upload = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", file)
+      const res = await axios.post("/api/upload", formData)
+      return res.data
+    } catch (err) {
+      console.log(err)
     }
-  const handleClick = async e=>{
+  }
+  const handleClick = async e => {
     e.preventDefault()
-    const imgUrl = await upload()
-
-    try{
+    // const imgUrl = await upload()
+    const imgUrl = "";
+    try {
       state ? await axios.put(`/api/posts/${state.id}`, {
         title,
-        desc:value,
+        desc: value,
         cat,
-        img:file ? imgUrl : ""
+        img: file ? imgUrl : ""
       }) : await axios.post(`/api/posts/`, {
         title,
-        desc:value,
+        desc: value,
         cat,
-        img:file ? imgUrl : "",
+        img: file ? imgUrl : "",
         date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss")
       })
       navigate("/")
-      
-    }catch(err){
+
+    } catch (err) {
       console.log(err)
     }
   }
   return (
     <div className='add'>
       <div className='content'>
-        <input type="text" value={title} placeholder='Title' onChange={e=>setTitle(e.target.value)}/>
+        <input type="text" value={title} placeholder='Title' onChange={e => setTitle(e.target.value)} />
         <div className='editorContainer'>
-        <ReactQuill className='editor' theme="snow" value={value} onChange={setValue} />
+          <ReactQuill className='editor' theme="snow" value={value} onChange={setValue} />
         </div>
       </div>
       <div className='menu'>
@@ -66,7 +66,7 @@ const Write = () => {
           <span>
             <b>Visibility: </b>Public
           </span>
-          <input style={{display:"none"}} type="file" name="" id="file" onChange={e=>setFile(e.target.files[0])}/>
+          <input style={{ display: "none" }} type="file" name="" id="file" onChange={e => setFile(e.target.files[0])} />
           <label className="file" htmlFor="file">Upload Image</label>
           <div className="buttons">
             <button>Save as a draft</button>
@@ -76,17 +76,17 @@ const Write = () => {
         <div className="item">
           <h1>Category</h1>
           <div className="cat">
-          <input type="radio" checked={cat === "food"} name="cat" value="food" id="food" onChange={e=>setCat(e.target.value)}/>
-          <label htmlFor="food">Food</label></div>
+            <input type="radio" checked={cat === "food"} name="cat" value="food" id="food" onChange={e => setCat(e.target.value)} />
+            <label htmlFor="food">Food</label></div>
           <div className="cat">
-          <input type="radio" checked={cat === "travel"} name="cat" value="travel" id="travel" onChange={e=>setCat(e.target.value)}/>
-          <label htmlFor="travel">Travel</label></div>
+            <input type="radio" checked={cat === "travel"} name="cat" value="travel" id="travel" onChange={e => setCat(e.target.value)} />
+            <label htmlFor="travel">Travel</label></div>
           <div className="cat">
-          <input type="radio" checked={cat === "cloth"} name="cat" value="cloth" id="cloth" onChange={e=>setCat(e.target.value)}/>
-          <label htmlFor="cloth">Cloth</label></div>
+            <input type="radio" checked={cat === "cloth"} name="cat" value="cloth" id="cloth" onChange={e => setCat(e.target.value)} />
+            <label htmlFor="cloth">Cloth</label></div>
           <div className="cat">
-          <input type="radio" checked={cat === "photo"} name="cat" value="photo" id="photo" onChange={e=>setCat(e.target.value)}/>
-          <label htmlFor="photo">Photo</label></div>
+            <input type="radio" checked={cat === "photo"} name="cat" value="photo" id="photo" onChange={e => setCat(e.target.value)} />
+            <label htmlFor="photo">Photo</label></div>
         </div>
       </div>
     </div>
