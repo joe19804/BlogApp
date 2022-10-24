@@ -15,11 +15,11 @@ import "./style.scss"
 
 const Layout = () => {
   return (
-    <>
+    <div>
       <Navbar />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 }
 

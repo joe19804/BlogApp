@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`/api/posts`);
+        const res = await axios.get(`/api/posts${cat}`);
         setPosts(res.data);
       } catch (err) {
         console.log(err);
@@ -60,7 +60,7 @@ const Home = () => {
               <img src={`./upload/{post.img}`} alt="" />
             </div>
             <div className="content">
-              <Link className="link" to={`/posts/${post.id}`}>
+              <Link className="link" to={`/post/${post.id}`}>
                 <h1>{post.title}</h1>
               </Link>
               <p>{getText(post.desc)}</p>
